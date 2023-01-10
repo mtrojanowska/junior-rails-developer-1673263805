@@ -3,7 +3,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRubyVersion: 3.0.2
+  TargetRubyVersion: 3.1.0
   NewCops: enable
   Exclude:
     - 'db/**/*'
@@ -28,7 +28,7 @@ Style/Alias:
   Enabled: false
 
 Style/HashLikeCase:
-  Enabled: false
+  Enabled: true
 
 Style/Documentation:
   Enabled: false
@@ -46,7 +46,7 @@ RSpec/ExampleLength:
   Enabled: false
 
 RSpec/VerifiedDoubles:
-  Enabled: false
+  Enabled: true
 
 Naming/VariableNumber:
   Exclude:
@@ -68,7 +68,7 @@ Lint/AmbiguousBlockAssociation:
     - 'spec/**/*_spec.rb'
 
 Metrics/AbcSize:
-  Enabled: false
+  Enabled: true
 
 Metrics/ModuleLength:
   Enabled: false
