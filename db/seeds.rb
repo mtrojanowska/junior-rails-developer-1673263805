@@ -10,3 +10,10 @@
     password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true),
     encrypted_password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true) )
   end
+
+  5.times do
+    Post.create!( title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.sentences(number:5),
+    published_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now),
+    author_id: Faker::Number.within(range:3..7) )
+  end
+

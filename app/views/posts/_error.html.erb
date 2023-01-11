@@ -1,0 +1,6 @@
+<% if @post.errors.any? %>
+  <%= pluralize(@post.errors.count, 'error' ) %> prevented this post from being saved.
+    <%  @post.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+<% end %><br>

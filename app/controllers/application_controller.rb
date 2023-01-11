@@ -1,9 +1,21 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception, prepend: true
-  before_action :authenticate_author!
+  protect_from_forgery with: :exception
+  before_action :authenticate_author!, unless: :allowed_access
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def allowed_access
+    current_author
+  end
+
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(Author)
+      posts_path
+    else
+      super
+    end
+  end
 
   protected
 
