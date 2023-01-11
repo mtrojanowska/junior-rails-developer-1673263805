@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Employee Recognition Platform</title>
+    <title>Simple Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    
   </head>
 
   <body>
-    <%= yield %>
+     <p class="notice"><%= notice %></p>    
+     <p class="alert"><%= alert %></p>
+       
+        <%= link_to 'Logo', root_path %>
+           <% if author_signed_in? %>
+              <%= link_to 'Sign Out', destroy_author_session_path, 'data-turbo-method': :delete %>
+            <% else %>
+              <%= link_to 'Sign Up', new_author_registration_path %>
+              <%= link_to 'Sign In', new_author_session_path %>      
+        <% end %>
+
+      <%= yield %>
   </body>
 </html>
