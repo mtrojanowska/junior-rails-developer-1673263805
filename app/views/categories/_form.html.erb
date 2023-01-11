@@ -1,0 +1,6 @@
+<%= form_with model: @category, local: true do |f| %>
+  <%= render 'shared/error', model: @category %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %><br>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Categories#Index</h1>
+<% @categories.each do |category| %><br>
+  <%= category.title %>  |  
+    <%= link_to 'Edit category', edit_category_path(category) %>
+<% end %><br>
+<%= link_to 'Back to Posts', posts_path %>

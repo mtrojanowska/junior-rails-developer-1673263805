@@ -1,10 +1,14 @@
 <h1>Posts#index</h1>
 <% @posts.each do |post| %><br>
-  <%= post.title %> created by <%= post.author.email %><br>
+ <b>Title:</b><%= post.title %> <b>created by</b> <%= post.author.email %> 
+ <b>Category:</b> <% post.categories.each do |category| %>
+               <%= category.title %>
+           <% end %><br>
     <% if current_author == post.author %>
-      <%= link_to 'Edit post', edit_post_path(post) %>
-      <%= link_to 'Destroy post', post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> 
+       <%= link_to 'Edit post', edit_post_path(post) %>
+       <%= link_to 'Destroy post', post_path(post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %> 
     <% end %>       
 <% end %><br>
 
-<%= link_to 'Create post', new_post_path %>
+<%= link_to 'Create post', new_post_path %><br>
+<%= link_to 'Categories', categories_path %><br>

@@ -1,0 +1,6 @@
+<% if model.errors.any? %>
+  <%= pluralize(model.errors.count, 'error' ) %> prevented this <%= model %> from being saved.
+    <%  model.errors.full_messages.each do |msg| %>
+      <%= msg %>
+    <% end %>
+<% end %><br>

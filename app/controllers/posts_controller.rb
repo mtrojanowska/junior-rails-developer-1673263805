@@ -13,9 +13,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
+      flash[:notice] = 'Post has been successfully created'
       redirect_to posts_path
     else
-      render 'new'
+      flash[:notice] = @post.errors.full_messages.join(' ')
+      redirect_to new_post_path
     end
   end
 
@@ -39,6 +41,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :published_at, :author_id)
+    params.require(:post).permit(:title, :description, :published_at, :author_id, category_ids: [])
   end
 end
