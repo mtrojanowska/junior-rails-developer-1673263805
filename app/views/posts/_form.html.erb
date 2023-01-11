@@ -1,6 +1,6 @@
 
-  <%= form_with model: @post do |f| %>
-    <%= render 'error' %>
+  <%= form_with model: @post, local: true do |f| %>
+    <%= render 'shared/error', model: @post %>
 
     <%= f.hidden_field :author_id, value: current_author.id %>
 
@@ -12,7 +12,11 @@
 
     <%= f.label :published_at %><br>
     <%= date_select("post", "published_at") %><br>
+
+        <p><b>Choose category:</b></p>
+
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :title, {prompt: "choose the category"}) %><br>
     
-    <%= f.submit "Create post" %>
+    <%= f.submit %>
   <% end %>
   
