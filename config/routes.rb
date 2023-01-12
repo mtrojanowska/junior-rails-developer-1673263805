@@ -2,11 +2,9 @@
 
 Rails.application.routes.draw do  
 
-  get  'render/index'  
-  root to: 'render#index'
-
+  
   devise_for :authors
-  # root to: 'home#index'
+  root to: 'home#index'
 
   namespace :author do
     root to: "posts#index"
