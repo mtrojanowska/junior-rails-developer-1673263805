@@ -25,8 +25,10 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
+      flash[:success] = 'Category was successfully updated'
       redirect_to categories
     else
+      flash[:alert] = @category.errors.full_messages.join(', ')
       render 'new'
     end
   end
