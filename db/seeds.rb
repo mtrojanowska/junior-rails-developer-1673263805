@@ -10,10 +10,6 @@
 #   Category.create!( title: Faker::Lorem.words(number: 2) )   
 # end  
 
-Category.delete_all
-Post.delete_all   
-Author.delete_all
-
 
 3.times do  
   author = Author.create!( nickname: Faker::Name.first_name, email: Faker::Internet.email,
