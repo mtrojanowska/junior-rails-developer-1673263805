@@ -9,8 +9,11 @@
 # 3.times do
 #   Category.create!( title: Faker::Lorem.words(number: 2) )   
 # end  
+Author.delete_all
+Category.delete_all
+Post.delete_all
 
-  
+
 3.times do
   
   author = Author.create!( nickname: Faker::Name.first_name, email: Faker::Internet.email,
