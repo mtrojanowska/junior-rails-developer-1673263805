@@ -20,7 +20,7 @@
      
   category = []
     3.times do
-       category << Category.create!( title: Faker::Lorem.words(number: 2) )   
+       category << Category.create!( title: Faker::Lorem.word )   
       end  
       
       post = Post.new( title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.sentences(number:5),
