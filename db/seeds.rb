@@ -9,7 +9,9 @@
 # 3.times do
 #   Category.create!( title: Faker::Lorem.words(number: 2) )   
 # end  
-
+Category.delete_all
+Post.delete_all
+Author.delete_all
 
 3.times do
   
@@ -30,6 +32,4 @@
   
   end
 
-Category.delete_all
-Post.delete_all
-Author.delete_all
+
