@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :find_post, only: %i[edit update destroy]
+  before_action :find_post, only: %i[edit show update destroy]
   def index
     @posts = Post.all
   end
@@ -20,6 +20,8 @@ class PostsController < ApplicationController
       redirect_to new_post_path
     end
   end
+
+  def show; end
 
   def update
     if @post.update(post_params)

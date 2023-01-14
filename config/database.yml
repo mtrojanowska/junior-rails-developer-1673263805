@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: employee_recognition_development
+  username: employee_recognition
+  password: dupablada
+
     
 
   # The specified database role being used to connect to postgres.
