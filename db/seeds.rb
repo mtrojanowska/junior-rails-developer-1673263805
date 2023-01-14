@@ -26,7 +26,6 @@
 #     published_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now), author_id: author.id  )    
 #     post.categories << category
 #     post.save
+# <% end %>
 
     load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
-
-end
