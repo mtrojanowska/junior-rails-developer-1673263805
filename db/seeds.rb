@@ -10,22 +10,23 @@
 #   Category.create!( title: Faker::Lorem.words(number: 2) )   
 # end  
 
+Category.delete_all
+Post.delete_all   
+Author.delete_all
 
 
-
-3.times do
-  Author.delete_all
+3.times do  
   author = Author.create!( nickname: Faker::Name.first_name, email: Faker::Internet.email,
            password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true),
            encrypted_password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true) )
       
-  Category.delete_all
+  
   category = []
     3.times do
        category << Category.create!( title: Faker::Lorem.word )   
       end  
      
-  Post.delete_all    
+  
   post = Post.new( title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.sentences(number:5),
          published_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now), author_id: author.id  )    
          post.categories << category
