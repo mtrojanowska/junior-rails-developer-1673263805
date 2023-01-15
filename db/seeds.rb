@@ -12,7 +12,7 @@
 
 
 3.times do  
-  author = Author.find_or_create_by!( nickname: Faker::Name.first_name, email: Faker::Internet.email,
+  author = Author.create!( nickname: Faker::Name.first_name, email: Faker::Internet.email,
            password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true),
            encrypted_password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true) )
       
