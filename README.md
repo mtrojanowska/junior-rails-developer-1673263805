@@ -1,11 +1,5 @@
-# Employee Recognition Platfrom
+login:
+nerdsfamily@gmail.com
 
-### Setup
-```
-bin/setup
-```
-
-### How to start the app
-```
-rails server
-```
+password:
+nerdsfamily
