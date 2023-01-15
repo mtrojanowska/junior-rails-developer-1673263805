@@ -12,18 +12,18 @@
 
 
 3.times do  
-  author = Author.create!( nickname: Faker::Name.first_name, email: Faker::Internet.email,
+  author = Author.find_or_create_by!( nickname: Faker::Name.first_name, email: Faker::Internet.email,
            password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true),
            encrypted_password: Faker::Internet.password(min_length: 26, max_length: 26, mix_case: true) )
       
   
   category = []
     3.times do
-       category << Category.create!( title: Faker::Lorem.word )   
+       category << Category. find_or_create_by!( title: Faker::Lorem.word.capitalize )   
       end  
      
   
-  post = Post.new( title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.sentences(number:5),
+  post = Post.new( title: Faker::Lorem.sentence(word_count: 3), description: Faker::Lorem.paragraph(sentence_count: 5),
          published_at: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now), author_id: author.id  )    
          post.categories << category
          post.save
