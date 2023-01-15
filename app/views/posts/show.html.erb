@@ -1,3 +1,4 @@
 <h1>Show post</h1>
 <%= @post.description %><br>
-Published at: <%= @post.published_at%>
+Published at: <%= @post.published_at.strftime('%Y:%M:%d')><br>
+<%= link_to "Back to posts", posts_path %>
